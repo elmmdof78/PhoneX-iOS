@@ -9,7 +9,25 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Say Hello
+    
+    - name: Install XcodeGen
+      run: brew install xcodegen
+      
+    - name: Generate Xcode Project
+      run: xcodegen generate
+      
+    - name: Build and Archive
       run: |
-        echo "Hello! GitHub Actions is working on a Mac."
-        sw_vers
+        xcodebuild -project PhoneX.xcodeproj -scheme PhoneX -sdk iphoneos -configuration Release CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+        
+    - name: Create IPA
+      run: |
+        mkdir Payload
+        cp -r build/Release-iphoneos/PhoneX.app Payload/
+        zip -r PhoneX.ipa Payload
+        
+    - name: Upload IPA
+      uses: actions/upload-artifact@v4
+      with:
+        name: PhoneX-iOS
+        path: PhoneX.ipa

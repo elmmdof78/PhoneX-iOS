@@ -25,6 +25,11 @@
         <key>NSAllowsArbitraryLoads</key>
         <true/>
     </dict>
+    <!-- ✅ توضیح دسترسی به بلوتوث -->
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>PhoneX needs Bluetooth to connect to your Android device.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>PhoneX needs Bluetooth to connect to your Android device.</string>
     <key>UILaunchScreen</key>
     <dict/>
     <key>UISupportedInterfaceOrientations</key>

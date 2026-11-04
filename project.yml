@@ -1,0 +1,17 @@
+name: PhoneX
+options:
+  bundleIdPrefix: com.elmmdof
+  deploymentTarget:
+    iOS: "15.0"
+targets:
+  PhoneX:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    settings:
+      base:
+        INFOPLIST_FILE: Sources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.elmmdof.phonex
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO

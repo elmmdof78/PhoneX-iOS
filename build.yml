@@ -1,0 +1,12 @@
+name: Build iOS App
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build
+      run: |
+        echo "This is a test build. We will put real Xcode commands here later."
